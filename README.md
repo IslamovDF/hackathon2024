@@ -48,7 +48,7 @@ python manage.py migrate
 # Миграция новой модели
 ```commandline
 python manage.py makemigrations tasks
-python manage.py sqlmigrate tasks 0001 (вывод в консоль содержимго миграции)
+python manage.py sqlmigrate tasks 0001 вывод в консоль содержимго миграции
 python manage.py migrate
 ```
 

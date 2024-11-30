@@ -17,17 +17,19 @@ def new_task(request):
         new_task_form.closed = False
         new_task_form.save()
         return render(request,
-                      'tasks\\success_task.html',
+                      'tasks/success_task.html',
                       {'task_id': new_task_form.id,
                         'message_text': new_task_form.message})
-    return render(request, 'tasks\\new_task.html')
+    return render(request, 'tasks/new_task.html')
 
 def tasks_list(request):
-    task_list = Task.objects.all()
-    return HttpResponse(', '.join([x.title for x in task_list]))
+    tasks_list_to_page = Task.objects.all()
+    print(len(tasks_list_to_page))
+    # return HttpResponse(', '.join([x.title for x in tasks_list_to_page]))
+    return render(request, 'tasks/task_list.html', {'task_list': tasks_list_to_page})
 
 def detail_task(request, task_id):
     return HttpResponse(f'<h1>Task - {task_id}</h1>')
 
 def about(request):
-    return render(request, 'tasks\\about.html')
+    return render(request, 'tasks/about.html')
