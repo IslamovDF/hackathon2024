@@ -2,3 +2,4 @@
 .venv
 tasks/__pycache__
 tasks/migrations/__pycache__
+*__pycache__*
