@@ -13,7 +13,7 @@ def new_task(request, email=None):
         new_task_form = Task()
         new_task_form.title = request.POST['title'] if request.POST['title'] else ''
         new_task_form.message = request.POST['message'] if request.POST['message'] else ''
-        new_task_form.authors = User.objects.get(id=1)
+        new_task_form.authors = request.POST['authors_email'] if request.POST['authors_email'] else ''
         new_task_form.closed = False
         new_task_form.save()
         return render(request,

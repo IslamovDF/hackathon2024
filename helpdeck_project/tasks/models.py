@@ -6,7 +6,7 @@ from django.forms import ModelForm
 class Task(models.Model):
     title = models.CharField(max_length=1024)
     message = models.TextField()
-    authors = models.ForeignKey(User, on_delete=models.CASCADE)
+    authors = models.CharField(max_length=1024)
     created = models.DateTimeField("date published", auto_now_add= True)
     closed = models.BooleanField(default=False)
 
