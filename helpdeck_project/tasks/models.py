@@ -13,6 +13,15 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 
+class Info(models.Model):
+    autor_ID = models.CharField(max_length=50)
+    address = models.CharField(max_length=1024)
+    priority = models.IntegerField(default=0)
+    email = models.CharField(max_length=1024)
+
+    def __str__(self):
+        return self.email
+
 class TaskForm(ModelForm):
     class Meta:
         model = Task
