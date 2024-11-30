@@ -8,6 +8,10 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request, 'tasks\index.html')
 
+def task_info(request, task_id):
+    task = Task.objects.get(id=task_id)
+    return render(request, 'tasks/task_info.html', {'task': task})
+
 def new_task(request, email=None):
     if request.method == 'POST':
         new_task_form = Task()
@@ -24,7 +28,7 @@ def new_task(request, email=None):
 
 def tasks_list(request):
     tasks_list_to_page = Task.objects.all()
-    print(len(tasks_list_to_page))
+    # print(len(tasks_list_to_page))
     # return HttpResponse(', '.join([x.title for x in tasks_list_to_page]))
     return render(request, 'tasks/task_list.html', {'task_list': tasks_list_to_page})
 
