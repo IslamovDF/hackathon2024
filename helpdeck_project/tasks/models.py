@@ -7,6 +7,7 @@ class Task(models.Model):
     title = models.CharField(max_length=1024)
     message = models.TextField()
     authors = models.CharField(max_length=1024)
+    contractor = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     created = models.DateTimeField("date published", auto_now_add= True)
     closed = models.BooleanField(default=False)
 
