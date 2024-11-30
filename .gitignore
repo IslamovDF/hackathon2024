@@ -1,2 +1,4 @@
 .idea
 .venv
+tasks/__pycache__
+tasks/migrations/__pycache__
