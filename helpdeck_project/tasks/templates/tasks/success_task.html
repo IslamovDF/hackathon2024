@@ -1,0 +1,17 @@
+{% extends "tasks/base.html" %}
+   
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-center text">Заявка успешно оформлена!</h3>
+                <div class="alert alert-success" role="alert">
+                  <h4 class="alert-heading">Заявка успешно оформлена!</h4>
+                  <p>{{ message_text }}</p>
+                  <hr>
+                  <p class="mb-0">Номер вашей заявки: {{ task_id }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

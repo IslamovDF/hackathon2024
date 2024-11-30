@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -9,7 +10,16 @@ def index(request):
 
 def new_task(request):
     if request.method == 'POST':
-        return HttpResponse(request.POST['title'])
+        new_task_form = Task()
+        new_task_form.title = request.POST['title'] if request.POST['title'] else ''
+        new_task_form.message = request.POST['message'] if request.POST['message'] else ''
+        new_task_form.authors = User.objects.get(id=1)
+        new_task_form.closed = False
+        new_task_form.save()
+        return render(request,
+                      'tasks\\success_task.html',
+                      {'task_id': new_task_form.id,
+                        'message_text': new_task_form.message})
     return render(request, 'tasks\\new_task.html')
 
 def tasks_list(request):
