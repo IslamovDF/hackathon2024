@@ -5,10 +5,16 @@ from django.forms import ModelForm
 
 # Create your models here.
 class TypeTask(models.Model):
-    type = models.CharField(max_length=50)
+    type = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.type
+
+class Priority(models.Model):
+    level = models.CharField(max_length=50, null=True)
+
+    def __str__(self):
+        return self.level
 
 class Task(models.Model):
     title = models.CharField(max_length=1024)
@@ -18,6 +24,7 @@ class Task(models.Model):
     created = models.DateTimeField("date published", auto_now_add= True)
     closed = models.BooleanField(default=False)
     typetask = models.ForeignKey(TypeTask, on_delete=models.CASCADE, null=True)
+    priority = models.ForeignKey(Priority, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

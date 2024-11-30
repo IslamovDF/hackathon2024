@@ -12,6 +12,7 @@
                         <h5 class="card-title">Электронная почта пользователя: {{ task.authors }}</h5>
                         <h5 class="card-title">Статус: {{ task.closed }}</h5>
                         <h5 class="card-title">Тип заявки: {{ task.typetask }}</h5>
+                        <h5 class="card-title">Приоритет заявки: {{ task.priority }}</h5>
                         <h5 class="card-title">Дата подачи заявки: {{ task.created|date:'d.m.Y H:i' }}</h5>
                         <h5 class="card-title">Исполнитель: {{ task.contractor }}</h5>
                         <p class="card-text">{{ task.message }}</p>
