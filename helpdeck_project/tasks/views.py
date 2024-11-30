@@ -31,5 +31,10 @@ def tasks_list(request):
 def detail_task(request, task_id):
     return HttpResponse(f'<h1>Task - {task_id}</h1>')
 
+def statistics(request):
+    return render(request, 'tasks/statistics.html',
+                  {'task_count': len(Task.objects.all()),
+                   'user_count': len(User.objects.all())})
+
 def about(request):
     return render(request, 'tasks/about.html')

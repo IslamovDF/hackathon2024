@@ -1,0 +1,14 @@
+{% extends "tasks/base.html" %}
+   
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="text-center text">Статистика заявок</h3>
+                <h4>Количество заявок: {{ task_count }}</h4>
+                <h4>Количество Пользователей: {{ user_count }}</h4>
+                <h4>Количество закрытых заявок: {{ task_count }}</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
