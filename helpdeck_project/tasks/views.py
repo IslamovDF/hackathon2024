@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
 from .models import TypeTask
+from .models import Priority
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -70,9 +71,13 @@ def new_task(request, email=None):
 
 def tasks_list(request):
     tasks_list_to_page = Task.objects.all()
-    # print(len(tasks_list_to_page))
+    prior = [p.level for p in Priority.objects.all()]
+    print(prior)
+    print(type(prior))
+    # print(len(tasks_list_to_page[0].))
     # return HttpResponse(', '.join([x.title for x in tasks_list_to_page]))
-    return render(request, 'tasks/task_list.html', {'task_list': tasks_list_to_page})
+    return render(request, 'tasks/task_list.html', {'task_list': tasks_list_to_page,
+                                                    'prior': prior})
 
 def detail_task(request, task_id):
     return HttpResponse(f'<h1>Task - {task_id}</h1>')

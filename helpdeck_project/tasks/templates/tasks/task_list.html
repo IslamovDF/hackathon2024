@@ -4,13 +4,39 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="text-center text">Список задач</h3>
+                <h3 class="text-center text">Список заявок</h3>
                 {% if task_list %}
-                <div class="list-group">
+                 <table class="table table-hover">
+                <thead class="table_bg">
+                    <tr>
+                        <th class="align-middle text-center" scope="col">№</th>
+                        <th class="align-middle" scope="col">Текст</th>
+                        <th class="align-middle" scope="col">Почта заявителя</th>
+                        <th class="align-middle text-left" scope="col">Дата обращения</th>
+                        <th class="align-middle text-center" scope="col">Статус</th>
+                        <th class="align-middle text-center">Приоритет</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {% for task in task_list %}
-                        <a href='/task/{{ task.id }}/' class="list-group-item list-group-item-action">{{ task }}</a>
+                    <tr>
+                        <td class="text-center">№</td>
+                        <td><a class="text-decoration-none" href='/task/{{ task.id }}/'>{{ task }}</a></td>
+                        <td>{{ task.authors }}</td>
+                        <td class="text-right">{{ task.created|date:'d.m.Y' }}</td>
+                        {% if task.closed %}
+                            <td class="text-center"><span class="badge bg-success">Закрыта</span></td>
+                        {% else %}
+                            <td class="text-center"><span class="badge bg-secondary">В работе</span></td>
+                        {% endif %}
+
+                        <td class="text-center">{{ task.priority.level }}</td>
+                    </tr>
                     {% endfor %}
+                </tbody>
+                </table>
                 {% else %}
+                <div class="list-group">
                     <p>Список заявок пуст</p>
                 </div>
                 {% endif %}
