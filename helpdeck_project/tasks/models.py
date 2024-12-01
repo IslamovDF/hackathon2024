@@ -17,7 +17,7 @@ class Priority(models.Model):
         return self.level
 
 class Task(models.Model):
-    title = models.CharField(max_length=1024)
+    title = models.CharField(max_length=1024, null=True)
     message = models.TextField()
     authors = models.CharField(max_length=1024)
     contractor = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -27,7 +27,7 @@ class Task(models.Model):
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.title
+        return self.message[:100] + '...'
 
 class Info(models.Model):
     autor_ID = models.CharField(max_length=50)

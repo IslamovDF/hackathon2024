@@ -8,7 +8,7 @@
                 {% if task_list %}
                 <div class="list-group">
                     {% for task in task_list %}
-                        <a href='/task/{{ task.id }}/' class="list-group-item list-group-item-action">{{ task.title }}</a>
+                        <a href='/task/{{ task.id }}/' class="list-group-item list-group-item-action">{{ task }}</a>
                     {% endfor %}
                 {% else %}
                     <p>Список заявок пуст</p>
