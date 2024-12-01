@@ -1,5 +1,13 @@
 # Проект для конкурса разработчиков Хантатон 2024
 ## Сиcтема для управления заявками в службу поддержки
+
+## Ссылка на разработанную систему
+http://127.0.0.1:8000
+http://127.0.0.1:8000/new/vasiliy.petrov@mail.ru
+
+## Стек используемых технологий
+Python, Django, Sqlite, Bootstrap, 
+
 ## Используемые источники:
 https://docs.djangoproject.com/en/5.1/intro/tutorial01/
 https://habr.com/ru/articles/234307/
