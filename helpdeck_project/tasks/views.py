@@ -45,7 +45,7 @@ def yandex_gpt(text_for_user):
 
 
 def index(request):
-    return render(request, 'tasks\index.html')
+    return render(request, 'tasks/index.html')
 
 def task_info(request, task_id):
     task = Task.objects.get(id=task_id)
