@@ -62,6 +62,7 @@ def new_task(request, email=None):
         new_task_form.contractor = User.objects.get(id=1)
         new_task_form.typetask = TypeTask.objects.get(id=id_type_task)
         new_task_form.closed = False
+        new_task_form.priority = Priority.objects.get(id=1)
         new_task_form.save()
         return render(request,
                       'tasks/success_task.html',
