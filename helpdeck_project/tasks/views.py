@@ -37,7 +37,7 @@ def yandex_gpt(text_for_user):
     url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
     headers = {
     "Content-Type": "application/json",
-    "Authorization": "Api-Key AQVNxBeG9c3sQp7qXi5qUSrTAArNxxKypW8gOCov"
+    "Authorization": "..."  # для включения ИИ нужно в данной строке ввести токен и в строке 57 внести изменения: id_type_task = yandex_gpt(request.POST['message'])
     }
     response = requests.post(url, headers=headers, json=prompt)
     result = response.text
@@ -54,7 +54,7 @@ def task_info(request, task_id):
 def new_task(request, email=None):
     if request.method == 'POST':
         new_task_form = Task()
-        id_type_task = yandex_gpt(request.POST['message'])
+        id_type_task = 2  # yandex_gpt(request.POST['message'])
         print(id_type_task)
         new_task_form.title = request.POST['title'] if request.POST['title'] else ''
         new_task_form.message = request.POST['message'] if request.POST['message'] else ''
